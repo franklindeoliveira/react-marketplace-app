@@ -1,57 +1,35 @@
 import React, { Component } from 'react';
-import $ from 'jquery';
 
-class TabelaProduto extends Component {
-
-    constructor() {
-        super();
-        this.state = {produtos: []};        
-    };
-
-    componentDidMount() {
-        $.ajax({
-            url: "http://localhost:8080/produtos",
-            dataType: 'json',
-            success: resposta => {
-                console.log("sucesso");
-                this.setState({produtos: resposta});
-            },
-            error: resposta => {
-                console.log("erro");
-                console.log(resposta);
-            }
-        });        
-    }
+export default class TabelaProduto extends Component {
 
     render() {
         
-        console.log("render");
-        console.log(this.state);
-        return (        
-            <table className="table">
-                <thead>                    
-                <tr>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Descrição</th>
-                    <th scope="col">Valor</th>
-                </tr>
-                </thead>
-                <tbody>
-                {
-                    this.state.produtos.map(produto => {
-                        return (
-                            <tr>
-                                <td>{produto.nome}</td>
-                                <td>{produto.descricao}</td>
-                                <td>{produto.valor}</td>
-                            </tr>
-                        )
-                    })
-                }
-                </tbody>
-            </table>
+        return (
+            <div>  
+                <h1>Lista de Produtos</h1>
+                <table className="table">
+                    <thead>                    
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Valor</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {
+                        this.props.linhas.map(linha => {
+                            return (
+                                <tr>
+                                    <td>{linha.nome}</td>
+                                    <td>{linha.descricao}</td>
+                                    <td>{linha.valor}</td>
+                                </tr>
+                            )
+                        })
+                    }
+                    </tbody>
+                </table>
+            </div>
         );
     }
 }
-
-export default TabelaProduto;

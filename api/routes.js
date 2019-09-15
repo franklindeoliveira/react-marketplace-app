@@ -9,4 +9,5 @@ module.exports = function(app) {
 
     app.route('/produtos')
         .post(api.cadastraProduto);
+
 };

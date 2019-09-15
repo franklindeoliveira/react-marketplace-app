@@ -1,22 +1,25 @@
 import React, {Component} from 'react';
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import FormularioProduto from './componentes/FormularioProduto'
-import TabelaProduto from './componentes/TabelaProduto'
-import BarraNavegacao from './componentes/BarraNavegacao'
+import Cabecalho from './componentes/Cabecalho';
+import Rodape from './componentes/Rodape';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import PaginaHome from './componentes/PaginaHome';
+import PaginaProduto from './componentes/PaginaProduto';
 
 class App extends Component {
 
   render() {
     return (
       <div className="content">
+        <Router>
 
-        <BarraNavegacao></BarraNavegacao>
+          <Cabecalho />
+          
+          <Route exact path="/" component={PaginaHome}/>
+          <Route path="/produtos" component={PaginaProduto}/>
 
-        <h1>Cadastro de Produtos</h1>
+          <Rodape />
 
-        <FormularioProduto></FormularioProduto>
-        <TabelaProduto></TabelaProduto>
+        </Router>
       </div>
     );
   }

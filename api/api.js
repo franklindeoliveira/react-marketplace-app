@@ -3,9 +3,9 @@
 var api = {}
 
 var produtos = [
-    { "nome": "Nome do produto 1", "descricao": "Descrição do produto 1", "valor": 10 },
-    { "nome": "Nome do produto 2", "descricao": "Descrição do produto 2", "valor": 20 },
-    { "nome": "Nome do produto 3", "descricao": "Descrição do produto 3", "valor": 30 }
+    { "id": 1, "nome": "Nome do produto 1", "descricao": "Descrição do produto 1", "valor": 10 },
+    { "id": 2, "nome": "Nome do produto 2", "descricao": "Descrição do produto 2", "valor": 20 },
+    { "id": 3, "nome": "Nome do produto 3", "descricao": "Descrição do produto 3", "valor": 30 }
 ];
 
 api.listaProdutos = function(req, res) {
