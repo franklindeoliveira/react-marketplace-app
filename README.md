@@ -15,7 +15,7 @@
 
 1. Iniciar a API
 ```
-cd eact-marketplace-app/api
+cd react-marketplace-app/api
 node server
 ```
 
